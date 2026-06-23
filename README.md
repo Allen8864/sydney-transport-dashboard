@@ -67,6 +67,23 @@ You can change the port:
 PORT=8090 python3 server.py
 ```
 
+## Deploying on Vercel
+
+Use these import settings:
+
+- Framework Preset: Other
+- Root Directory: `./`
+- Build Command: leave empty
+- Output Directory: leave empty
+
+Add this Environment Variable for Production, Preview, and Development:
+
+```text
+TFNSW_API_KEY=your_key_here
+```
+
+The repo includes `vercel.json` routing so Vercel serves the static dashboard from `static/` and exposes the backend state endpoint at `/api/state`.
+
 ## Configuration
 
 Common environment variables:
