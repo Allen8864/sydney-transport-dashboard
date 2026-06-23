@@ -920,6 +920,7 @@ h1 {
   top: 0;
   right: 52px;
   left: 0;
+  transform: none;
   animation-name: train-stop-scroll;
   animation-iteration-count: infinite;
 }
@@ -931,8 +932,8 @@ h1 {
 }
 
 @keyframes train-stop-scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(var(--stop-scroll-distance)); }
+  0% { top: 0; }
+  100% { top: var(--stop-scroll-distance); }
 }
 
 .train-due {
