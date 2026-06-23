@@ -1953,14 +1953,13 @@ h1 {
   }
 
   .transport {
-    display: grid;
-    min-height: 0;
+    display: block;
   }
 
   .stops {
-    align-content: stretch;
-    height: 100%;
-    grid-template-rows: max-content minmax(0, 1fr);
+    align-content: normal;
+    height: auto;
+    grid-template-rows: none;
   }
 
   .stop.train-platforms {
