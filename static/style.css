@@ -1898,19 +1898,26 @@ h1 {
   }
 
   body {
+    display: block;
     overflow-y: auto;
+    place-items: initial;
   }
 
   .dashboard-frame {
+    width: 100%;
+    max-width: 430px;
     height: auto;
+    margin: 0 auto;
     overflow: visible;
   }
 
   .board {
     position: relative;
+    width: 100%;
     height: auto;
-    min-height: 100vh;
+    min-height: 0;
     overflow: visible;
+    transform: none;
     grid-template-columns: 150px minmax(0, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:

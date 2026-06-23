@@ -485,8 +485,18 @@ function viewportSize() {
   };
 }
 
+function isFlowMobileDashboard() {
+  return window.matchMedia("(max-width: 639px)").matches;
+}
+
 function fitDashboard() {
   const root = document.documentElement;
+  if (isFlowMobileDashboard()) {
+    root.style.setProperty("--dashboard-scale", "1");
+    root.style.setProperty("--dashboard-fit-width", "100%");
+    root.style.setProperty("--dashboard-fit-height", "auto");
+    return;
+  }
   const rootStyle = getComputedStyle(root);
   const baseWidth = cssPixelVar("--dashboard-base-width", window.innerWidth || 1);
   const baseHeight = cssPixelVar("--dashboard-base-height", window.innerHeight || 1);
@@ -538,7 +548,9 @@ async function load() {
 fitDashboard();
 window.addEventListener("resize", scheduleDashboardFit);
 if (window.visualViewport) {
-  window.visualViewport.addEventListener("resize", scheduleDashboardFit);
+  window.visualViewport.addEventListener("resize", () => {
+    if (!isFlowMobileDashboard()) scheduleDashboardFit();
+  });
 }
 
 if (!new URLSearchParams(window.location.search).has("skeleton")) {
