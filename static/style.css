@@ -1940,7 +1940,7 @@ h1 {
 
   .dashboard-frame {
     width: 100% !important;
-    max-width: 758px;
+    max-width: none;
     height: auto !important;
     margin: 0 auto;
     overflow: visible;
@@ -1949,7 +1949,7 @@ h1 {
   .board {
     position: static;
     width: 100%;
-    max-width: 758px;
+    max-width: none;
     height: auto;
     min-height: 960px;
     margin: 0 auto;
