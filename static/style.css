@@ -1438,11 +1438,11 @@ h1 {
 @media (min-width: 561px) and (max-width: 1200px) {
   :root {
     --dashboard-base-width: 758px;
-    --dashboard-base-height: 970px;
+    --dashboard-base-height: 960px;
     --dashboard-scale-mode: width;
-    --hour-temp-size: 11px;
-    --hour-time-size: 8px;
-    --hour-rain-size: 7px;
+    --hour-temp-size: 15px;
+    --hour-time-size: 11px;
+    --hour-rain-size: 10px;
   }
 
   body {
@@ -1527,14 +1527,12 @@ h1 {
     align-content: center;
     justify-content: stretch;
     min-width: 0;
-    padding: 7px 8px;
+    padding: 0;
     border-right: 1px solid var(--line);
   }
 
   .weather-current .label {
-    display: block;
-    font-size: 10px;
-    line-height: 1;
+    display: none;
   }
 
   .weather-main {
@@ -1543,7 +1541,7 @@ h1 {
     align-items: center;
     grid-column-gap: 8px;
     column-gap: 8px;
-    padding: 0;
+    padding: 0 10px;
     margin-top: 0;
     font-size: 38px;
     line-height: 0.82;
@@ -1613,15 +1611,15 @@ h1 {
   }
 
   .hours.skeleton .hour b {
-    height: 8px;
+    height: 11px;
   }
 
   .hours.skeleton .hour .deg {
-    height: 14px;
+    height: 15px;
   }
 
   .hours.skeleton .hour span:last-child {
-    height: 8px;
+    height: 10px;
   }
 
   .transport {
@@ -1819,7 +1817,7 @@ h1 {
     --direction-row-min-height: 29px;
     --direction-row-padding: 4px 6px;
     --direction-route-size: 12px;
-    --direction-dest-size: 11px;
+    --direction-dest-size: 12px;
     --direction-due-size: 17px;
     grid-column: auto;
     grid-template-columns: minmax(0, 1fr);
@@ -1888,6 +1886,59 @@ h1 {
     border-right-width: 1px;
   }
 
+  .stop.light_rail .direction .route {
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .stop.light_rail .direction .dest {
+    font-size: 10px;
+  }
+
+}
+
+@media (min-width: 561px) and (max-width: 1200px) {
+  .dashboard-frame {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .board {
+    position: static;
+    width: 100%;
+    max-width: 758px;
+    height: auto;
+    min-height: 960px;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .transport {
+    display: block;
+  }
+
+  .stops {
+    align-content: normal;
+    height: auto;
+    grid-template-rows: none;
+  }
+
+  .stop.train-platforms {
+    display: block;
+  }
+
+  .platform-board {
+    height: auto;
+    min-height: 0;
+  }
+
+  .metro,
+  .light_rail,
+  .stop.directional,
+  .stop.directional .direction-grid {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 560px) {
