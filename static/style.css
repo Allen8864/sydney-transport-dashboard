@@ -1905,7 +1905,6 @@ h1 {
 
   .dashboard-frame {
     width: 100%;
-    max-width: 430px;
     height: auto;
     margin: 0 auto;
     overflow: visible;

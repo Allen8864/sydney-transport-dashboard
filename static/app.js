@@ -17,6 +17,7 @@ let resizeTimer = null;
 let lastTransport = null;
 let renderedDirectionalRowCount = null;
 let renderedTrainSecondaryRowCount = null;
+let lastFlowMobileViewportWidth = null;
 
 const DESKTOP_MEDIA_QUERY = "(min-width: 1201px)";
 const DESKTOP_DIRECTIONAL_ROW_COUNT = 8;
@@ -432,7 +433,8 @@ function renderCompactDeparture(row) {
 }
 
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+  const text = value === null || value === undefined ? "" : value;
+  return String(text).replace(/[&<>"']/g, (char) => ({
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
@@ -485,6 +487,11 @@ function viewportSize() {
   };
 }
 
+function viewportWidth() {
+  const width = viewportSize().width || window.innerWidth || 0;
+  return Math.round(width);
+}
+
 function isFlowMobileDashboard() {
   return window.matchMedia("(max-width: 639px)").matches;
 }
@@ -492,11 +499,13 @@ function isFlowMobileDashboard() {
 function fitDashboard() {
   const root = document.documentElement;
   if (isFlowMobileDashboard()) {
+    lastFlowMobileViewportWidth = viewportWidth();
     root.style.setProperty("--dashboard-scale", "1");
     root.style.setProperty("--dashboard-fit-width", "100%");
     root.style.setProperty("--dashboard-fit-height", "auto");
     return;
   }
+  lastFlowMobileViewportWidth = null;
   const rootStyle = getComputedStyle(root);
   const baseWidth = cssPixelVar("--dashboard-base-width", window.innerWidth || 1);
   const baseHeight = cssPixelVar("--dashboard-base-height", window.innerHeight || 1);
@@ -530,6 +539,23 @@ function scheduleDashboardFit() {
   }, 80);
 }
 
+function handleViewportResize() {
+  if (!isFlowMobileDashboard()) {
+    scheduleDashboardFit();
+    return;
+  }
+  const nextWidth = viewportWidth();
+  if (lastFlowMobileViewportWidth === null) {
+    lastFlowMobileViewportWidth = nextWidth;
+    scheduleDashboardFit();
+    return;
+  }
+  if (Math.abs(nextWidth - lastFlowMobileViewportWidth) >= 2) {
+    lastFlowMobileViewportWidth = nextWidth;
+    scheduleDashboardFit();
+  }
+}
+
 async function load() {
   try {
     const response = await fetch(`/api/state?t=${Date.now()}`, { cache: "no-store" });
@@ -546,14 +572,12 @@ async function load() {
 }
 
 fitDashboard();
-window.addEventListener("resize", scheduleDashboardFit);
+window.addEventListener("resize", handleViewportResize);
 if (window.visualViewport) {
-  window.visualViewport.addEventListener("resize", () => {
-    if (!isFlowMobileDashboard()) scheduleDashboardFit();
-  });
+  window.visualViewport.addEventListener("resize", handleViewportResize);
 }
 
-if (!new URLSearchParams(window.location.search).has("skeleton")) {
+if (window.location.search.indexOf("skeleton") === -1) {
   load();
   setInterval(load, 60 * 1000);
 }
