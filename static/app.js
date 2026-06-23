@@ -84,6 +84,11 @@ function weatherIconClass(icon) {
   }
 }
 
+function stopModeClass(mode) {
+  const value = String(mode || "").trim();
+  return value === "train_platforms" ? "train-platforms" : value;
+}
+
 function renderStops(transport) {
   lastTransport = transport;
   const directionalLimit = directionalRowCount();
@@ -94,9 +99,10 @@ function renderStops(transport) {
   els.stops.classList.remove("skeleton");
   els.stops.removeAttribute("aria-hidden");
   els.stops.innerHTML = stops.map((stop) => {
+    const modeClass = stopModeClass(stop.mode);
     if (stop.error) {
       return `
-        <article class="stop ${stop.mode || ""}">
+        <article class="stop ${modeClass}">
           <div class="stop-head">
             <div class="stop-name">${escapeHtml(stop.name)}</div>
             <div class="kind">${escapeHtml(stop.kind)}</div>
@@ -113,7 +119,7 @@ function renderStops(transport) {
     }
     const rows = (stop.departures || []).slice(0, GENERIC_DEPARTURE_ROW_COUNT);
     return `
-      <article class="stop ${stop.mode || ""}">
+      <article class="stop ${modeClass}">
         <div class="stop-head">
           <div class="stop-name">${escapeHtml(stop.name)}</div>
           <div class="kind">${escapeHtml(stop.kind)}</div>

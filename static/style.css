@@ -1937,6 +1937,7 @@ h1 {
     width: 100% !important;
     max-width: none;
     height: auto !important;
+    min-height: 100vh;
     margin: 0 auto;
     overflow: visible;
   }
@@ -1946,19 +1947,20 @@ h1 {
     width: 100%;
     max-width: none;
     height: auto;
-    min-height: 960px;
+    min-height: 100vh;
     margin: 0 auto;
     transform: none;
   }
 
   .transport {
-    display: block;
+    display: grid;
+    min-height: 0;
   }
 
   .stops {
-    align-content: normal;
-    height: auto;
-    grid-template-rows: none;
+    align-content: stretch;
+    height: 100%;
+    grid-template-rows: max-content minmax(0, 1fr);
   }
 
   .stop.train-platforms {
