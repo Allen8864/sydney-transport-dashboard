@@ -1599,15 +1599,15 @@ h1 {
   }
 
   .hour b {
-    font-size: var(--hour-time-size);
+    font-size: 11px;
   }
 
   .hour .deg {
-    font-size: var(--hour-temp-size);
+    font-size: 15px;
   }
 
   .hour span:last-child {
-    font-size: var(--hour-rain-size);
+    font-size: 10px;
   }
 
   .hours.skeleton .hour b {
@@ -1758,9 +1758,9 @@ h1 {
   }
 
   .train-stop-ticker {
-    --train-stop-row-height: 12px;
-    font-size: 10px;
-    line-height: var(--train-stop-row-height);
+    --train-stop-row-height: 16px;
+    font-size: 14px;
+    line-height: 16px;
   }
 
   .train-due {
@@ -1811,9 +1811,9 @@ h1 {
   }
 
   .stop.directional {
-    --direction-route-col: max-content;
-    --direction-due-col: 46px;
-    --direction-row-gap: 3px;
+    --direction-route-col: 26px;
+    --direction-due-col: 44px;
+    --direction-row-gap: 4px;
     --direction-row-min-height: 29px;
     --direction-row-padding: 4px 6px;
     --direction-route-size: 12px;
@@ -1865,7 +1865,12 @@ h1 {
   }
 
   .direction .departure {
+    grid-template-columns: 26px 1fr 44px;
+    grid-column-gap: 4px;
+    gap: 4px;
     align-items: center;
+    min-height: 29px;
+    padding: 4px 6px;
   }
 
   .direction-grid,
@@ -1886,6 +1891,31 @@ h1 {
     border-right-width: 1px;
   }
 
+  .stop.directional .route,
+  .stop.directional .dest,
+  .direction .route,
+  .direction .dest {
+    font-size: 12px;
+    line-height: 1.05;
+  }
+
+  .stop.directional .due,
+  .direction .due {
+    width: auto;
+    min-width: 44px;
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  .stop.light_rail .direction .departure,
+  .stop.light_rail .direction .departure.compact {
+    grid-template-columns: 18px minmax(0, 1fr) 40px;
+    grid-column-gap: 2px;
+    gap: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
   .stop.light_rail .direction .route {
     font-size: 12px;
     font-weight: 800;
@@ -1893,6 +1923,10 @@ h1 {
 
   .stop.light_rail .direction .dest {
     font-size: 10px;
+  }
+
+  .stop.light_rail .direction .due {
+    min-width: 40px;
   }
 
 }
