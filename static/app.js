@@ -493,7 +493,7 @@ function viewportWidth() {
 }
 
 function isFlowMobileDashboard() {
-  return window.matchMedia("(max-width: 639px)").matches;
+  return window.matchMedia("(max-width: 560px)").matches;
 }
 
 function fitDashboard() {
