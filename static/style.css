@@ -1893,7 +1893,7 @@ h1 {
 @media (max-width: 639px) {
   :root {
     --dashboard-base-width: 390px;
-    --dashboard-base-height: 1600px;
+    --dashboard-base-height: auto;
     --dashboard-scale-mode: width;
   }
 
@@ -1901,12 +1901,18 @@ h1 {
     overflow-y: auto;
   }
 
+  .dashboard-frame {
+    height: auto;
+    overflow: visible;
+  }
+
   .board {
-    height: var(--dashboard-base-height);
-    min-height: 0;
-    overflow: hidden;
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
     grid-template-columns: 150px minmax(0, 1fr);
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
       "topline weather"
       "hours hours"
