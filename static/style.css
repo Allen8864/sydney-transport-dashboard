@@ -1435,10 +1435,10 @@ h1 {
   }
 }
 
-@media (min-width: 561px) and (max-width: 1200px) {
+@media (min-width: 640px) and (max-width: 1200px) {
   :root {
     --dashboard-base-width: 758px;
-    --dashboard-base-height: 960px;
+    --dashboard-base-height: 970px;
     --dashboard-scale-mode: width;
     --hour-temp-size: 11px;
     --hour-time-size: 8px;
@@ -1890,32 +1890,7 @@ h1 {
 
 }
 
-@media (min-width: 561px) and (max-width: 1200px) {
-  .stops {
-    align-content: stretch;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-  }
-
-  .stop.train-platforms {
-    grid-column: 1 / span 3;
-    grid-row: 1 / span 2;
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-  }
-
-  .metro {
-    grid-column: 4 / span 2;
-    grid-row: 1;
-  }
-
-  .light_rail {
-    grid-column: 4 / span 2;
-    grid-row: 2;
-  }
-}
-
-@media (max-width: 560px) {
+@media (max-width: 639px) {
   :root {
     --dashboard-base-width: 390px;
     --dashboard-base-height: auto;
