@@ -1435,7 +1435,7 @@ h1 {
   }
 }
 
-@media (min-width: 640px) and (max-width: 1200px) {
+@media (min-width: 561px) and (max-width: 1200px) {
   :root {
     --dashboard-base-width: 758px;
     --dashboard-base-height: 970px;
@@ -1890,7 +1890,7 @@ h1 {
 
 }
 
-@media (max-width: 639px) {
+@media (max-width: 560px) {
   :root {
     --dashboard-base-width: 390px;
     --dashboard-base-height: auto;
