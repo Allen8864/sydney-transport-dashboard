@@ -370,6 +370,135 @@ h1 {
   margin-top: 2px;
 }
 
+.skeleton-route-block,
+.skeleton-route-pill,
+.skeleton-due,
+.skeleton-mini-due {
+  display: block;
+  background: transparent;
+  border: 0;
+  color: transparent;
+}
+
+.skeleton-route-block {
+  width: 28px;
+  height: 18px;
+}
+
+.skeleton-route-pill {
+  width: 20px;
+  height: 16px;
+}
+
+.skeleton-due {
+  width: 50px;
+  height: 36px;
+}
+
+.skeleton-mini-due {
+  justify-self: end;
+  width: 34px;
+  height: 18px;
+  border-width: 1px;
+}
+
+.skeleton-primary {
+  background: transparent;
+}
+
+.skeleton-stops {
+  display: grid;
+  align-items: stretch;
+  padding-right: 58px;
+}
+
+.skeleton-stop-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  height: 100%;
+  min-height: 36px;
+  border-top: 0;
+}
+
+.skeleton-stop-map span {
+  position: relative;
+  height: 100%;
+}
+
+.skeleton-stop-map span::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+.skeleton-stop-map span:nth-child(even)::before {
+  top: auto;
+  bottom: -4px;
+}
+
+.skeleton-secondary .train-next-row {
+  grid-template-columns: 22px minmax(0, 1fr) 38px;
+}
+
+.skeleton .skeleton-desktop-extra {
+  display: none;
+}
+
+.skeleton-direction {
+  --skeleton-direction-rows: 4;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.skeleton-direction .direction-body {
+  grid-template-rows: repeat(var(--skeleton-direction-rows), minmax(0, 1fr));
+  background-image: linear-gradient(to bottom, transparent calc(100% - 1px), var(--soft) calc(100% - 1px));
+  background-repeat: repeat-y;
+  background-size: 100% calc(100% / var(--skeleton-direction-rows));
+}
+
+.skeleton-departure {
+  border-bottom: 0;
+  color: transparent;
+}
+
+.skeleton-departure .skel-line {
+  align-self: center;
+  height: 10px;
+  margin: 0;
+}
+
+.hours.skeleton .hour {
+  color: transparent;
+}
+
+.hours.skeleton .hour b,
+.hours.skeleton .hour span {
+  display: block;
+  height: 9px;
+  background: transparent;
+  border: 0;
+  color: transparent;
+}
+
+.hours.skeleton .hour b {
+  width: 58%;
+}
+
+.hours.skeleton .hour .deg {
+  width: 42%;
+  height: 16px;
+}
+
+.hours.skeleton .hour span:last-child {
+  width: 76%;
+}
+
 .stop {
   border: 3px solid var(--line);
   min-width: 0;
@@ -1041,6 +1170,49 @@ h1 {
     padding: 0 6px;
   }
 
+  .hours.skeleton .hour b {
+    height: 12px;
+  }
+
+  .hours.skeleton .hour .deg {
+    height: 20px;
+  }
+
+  .hours.skeleton .hour span:last-child {
+    height: 11px;
+  }
+
+  .skeleton-stop-map {
+    min-height: 70px;
+  }
+
+  .skeleton-route-block {
+    width: 34px;
+    height: 22px;
+  }
+
+  .skeleton-due {
+    width: 62px;
+    height: 44px;
+  }
+
+  .skeleton-mini-due {
+    width: 42px;
+    height: 22px;
+  }
+
+  .skeleton .skeleton-desktop-extra {
+    display: grid;
+  }
+
+  .skeleton-secondary {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+
+  .skeleton-direction .direction-body {
+    --skeleton-direction-rows: 8;
+  }
+
   .stop.directional {
     --direction-due-col: clamp(76px, 4.8vw, 88px);
     --direction-row-gap: 7px;
@@ -1440,6 +1612,18 @@ h1 {
     font-size: var(--hour-rain-size);
   }
 
+  .hours.skeleton .hour b {
+    height: 8px;
+  }
+
+  .hours.skeleton .hour .deg {
+    height: 14px;
+  }
+
+  .hours.skeleton .hour span:last-child {
+    height: 8px;
+  }
+
   .transport {
     grid-area: transport;
   }
@@ -1518,6 +1702,34 @@ h1 {
 
   .train-primary {
     padding: 5px 6px;
+  }
+
+  .skeleton-route-block {
+    width: 22px;
+    height: 15px;
+  }
+
+  .skeleton-route-pill {
+    width: 17px;
+    height: 13px;
+  }
+
+  .skeleton-due {
+    width: 38px;
+    height: 28px;
+  }
+
+  .skeleton-mini-due {
+    width: 28px;
+    height: 15px;
+  }
+
+  .skeleton-stop-map {
+    min-height: 32px;
+  }
+
+  .skeleton-secondary .train-next-row {
+    grid-template-columns: 18px minmax(0, 1fr) 30px;
   }
 
   .train-primary .route {
@@ -1767,6 +1979,25 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
   }
 
+  .hours.skeleton .hour {
+    row-gap: 3px;
+  }
+
+  .hours.skeleton .hour b {
+    width: 64%;
+    height: 8px;
+  }
+
+  .hours.skeleton .hour .deg {
+    width: 48%;
+    height: 13px;
+  }
+
+  .hours.skeleton .hour span:last-child {
+    width: 82%;
+    height: 8px;
+  }
+
   .hour:nth-child(4n) {
     border-right: 0;
   }
@@ -1793,6 +2024,34 @@ h1 {
   .platform-board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(128px, auto));
+  }
+
+  .skeleton-route-block {
+    width: 20px;
+    height: 14px;
+  }
+
+  .skeleton-route-pill {
+    width: 16px;
+    height: 12px;
+  }
+
+  .skeleton-due {
+    width: 34px;
+    height: 25px;
+  }
+
+  .skeleton-mini-due {
+    width: 25px;
+    height: 14px;
+  }
+
+  .skeleton-stop-map {
+    min-height: 26px;
+  }
+
+  .skeleton-secondary .train-next-row {
+    grid-template-columns: 17px minmax(0, 1fr) 26px;
   }
 
   .platform-card:nth-child(3n) {
