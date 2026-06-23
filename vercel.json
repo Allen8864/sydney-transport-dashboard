@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["syd1"],
   "rewrites": [
     { "source": "/", "destination": "/static/index.html" },
     { "source": "/favicon.svg", "destination": "/static/favicon.svg" },
