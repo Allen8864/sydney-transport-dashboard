@@ -17,7 +17,7 @@ let resizeTimer = null;
 let lastTransport = null;
 let renderedDirectionalRowCount = null;
 let renderedTrainSecondaryRowCount = null;
-let lastFlowMobileViewportWidth = null;
+let lastFlowViewportWidth = null;
 
 const DESKTOP_MEDIA_QUERY = "(min-width: 1201px)";
 const DESKTOP_DIRECTIONAL_ROW_COUNT = 8;
@@ -492,20 +492,20 @@ function viewportWidth() {
   return Math.round(width);
 }
 
-function isFlowMobileDashboard() {
-  return window.matchMedia("(max-width: 560px)").matches;
+function isFlowDashboard() {
+  return window.matchMedia("(max-width: 1200px)").matches;
 }
 
 function fitDashboard() {
   const root = document.documentElement;
-  if (isFlowMobileDashboard()) {
-    lastFlowMobileViewportWidth = viewportWidth();
+  if (isFlowDashboard()) {
+    lastFlowViewportWidth = viewportWidth();
     root.style.setProperty("--dashboard-scale", "1");
     root.style.setProperty("--dashboard-fit-width", "100%");
     root.style.setProperty("--dashboard-fit-height", "auto");
     return;
   }
-  lastFlowMobileViewportWidth = null;
+  lastFlowViewportWidth = null;
   const rootStyle = getComputedStyle(root);
   const baseWidth = cssPixelVar("--dashboard-base-width", window.innerWidth || 1);
   const baseHeight = cssPixelVar("--dashboard-base-height", window.innerHeight || 1);
@@ -540,18 +540,18 @@ function scheduleDashboardFit() {
 }
 
 function handleViewportResize() {
-  if (!isFlowMobileDashboard()) {
+  if (!isFlowDashboard()) {
     scheduleDashboardFit();
     return;
   }
   const nextWidth = viewportWidth();
-  if (lastFlowMobileViewportWidth === null) {
-    lastFlowMobileViewportWidth = nextWidth;
+  if (lastFlowViewportWidth === null) {
+    lastFlowViewportWidth = nextWidth;
     scheduleDashboardFit();
     return;
   }
-  if (Math.abs(nextWidth - lastFlowMobileViewportWidth) >= 2) {
-    lastFlowMobileViewportWidth = nextWidth;
+  if (Math.abs(nextWidth - lastFlowViewportWidth) >= 2) {
+    lastFlowViewportWidth = nextWidth;
     scheduleDashboardFit();
   }
 }

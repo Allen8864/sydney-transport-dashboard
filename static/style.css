@@ -1898,9 +1898,17 @@ h1 {
 }
 
 @media (min-width: 561px) and (max-width: 1200px) {
+  body {
+    display: block;
+    overflow-x: hidden;
+    place-items: initial;
+  }
+
   .dashboard-frame {
     width: 100% !important;
+    max-width: 758px;
     height: auto !important;
+    margin: 0 auto;
     overflow: visible;
   }
 
