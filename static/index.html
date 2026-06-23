@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Central Board</title>
+    <link rel="stylesheet" href="/style.css?v=fit-scale-14">
+  </head>
+  <body>
+    <div id="dashboard-frame" class="dashboard-frame">
+    <main id="app" class="board">
+      <section class="topline">
+        <div class="time-current">
+          <div class="eyebrow" id="date">---</div>
+          <h1 id="clock">--:--</h1>
+        </div>
+      </section>
+
+      <section class="weather panel">
+        <div class="weather-current">
+          <div class="label">Weather</div>
+          <div class="weather-main"><span id="summary" class="summary">○</span><span class="current-temp"><span id="temp">--</span><small>°C</small></span></div>
+        </div>
+        <div class="weather-grid">
+          <div><b id="feels">--</b><span>feels</span></div>
+          <div><b id="rain">--</b><span>rain</span></div>
+          <div><b id="wind">--</b><span>wind</span></div>
+          <div><b id="humidity">--</b><span>humid</span></div>
+        </div>
+      </section>
+
+      <section class="hours skeleton" id="hours" aria-hidden="true">
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+        <div class="hour"><b>--:--</b><span class="deg">--°</span><span>-- rain</span></div>
+      </section>
+
+      <section class="transport">
+        <div id="stops" class="stops skeleton" aria-hidden="true">
+          <article class="stop train-platforms">
+            <div class="stop-head train-board-head">
+              <div class="stop-name">Train</div>
+              <div class="kind">Central Platforms</div>
+            </div>
+            <div class="platform-board">
+              <section class="platform-card">
+                <header class="platform-card-head"><div class="platform-number">16</div><div><div class="platform-kind">North Shore <span class="line-badge">T1</span><span class="line-badge">T9</span></div></div></header>
+                <div class="train-primary skeleton-primary"><div class="train-main"><div class="train-headsign"><span class="skel-line wide"></span></div></div><div class="train-stop-ticker skeleton-stops"><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line"></span></div></div><div class="train-due"></div></div>
+                <div class="platform-secondary"><div class="train-next-row"><div class="dest"><span class="skel-line long"></span></div><div class="due"></div></div><div class="train-next-row"><div class="dest"><span class="skel-line mid"></span></div><div class="due"></div></div></div>
+              </section>
+              <section class="platform-card">
+                <header class="platform-card-head"><div class="platform-number">17</div><div><div class="platform-kind">City Circle <span class="line-badge">T2</span><span class="line-badge">T8</span></div></div></header>
+                <div class="train-primary skeleton-primary"><div class="train-main"><div class="train-headsign"><span class="skel-line mid"></span></div></div><div class="train-stop-ticker skeleton-stops"><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line long"></span></div></div><div class="train-due"></div></div>
+                <div class="platform-secondary"><div class="train-next-row"><div class="dest"><span class="skel-line mid"></span></div><div class="due"></div></div><div class="train-next-row"><div class="dest"><span class="skel-line long"></span></div><div class="due"></div></div></div>
+              </section>
+              <section class="platform-card">
+                <header class="platform-card-head"><div class="platform-number">24</div><div><div class="platform-kind">Bondi <span class="line-badge">T4</span></div></div></header>
+                <div class="train-primary skeleton-primary"><div class="train-main"><div class="train-headsign"><span class="skel-line mid"></span></div></div><div class="train-stop-ticker skeleton-stops"><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line"></span></div></div><div class="train-due"></div></div>
+                <div class="platform-secondary"><div class="train-next-row"><div class="dest"><span class="skel-line long"></span></div><div class="due"></div></div><div class="train-next-row"><div class="dest"><span class="skel-line mid"></span></div><div class="due"></div></div></div>
+              </section>
+              <section class="platform-card">
+                <header class="platform-card-head"><div class="platform-number">18</div><div><div class="platform-kind">West / Northern <span class="line-badge">T1</span><span class="line-badge">T9</span></div></div></header>
+                <div class="train-primary skeleton-primary"><div class="train-main"><div class="train-headsign"><span class="skel-line long"></span></div></div><div class="train-stop-ticker skeleton-stops"><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line long"></span></div></div><div class="train-due"></div></div>
+                <div class="platform-secondary"><div class="train-next-row"><div class="dest"><span class="skel-line long"></span></div><div class="due"></div></div><div class="train-next-row"><div class="dest"><span class="skel-line mid"></span></div><div class="due"></div></div></div>
+              </section>
+              <section class="platform-card">
+                <header class="platform-card-head"><div class="platform-number">19</div><div><div class="platform-kind">Inner West <span class="line-badge">T2</span><span class="line-badge">T3</span></div></div></header>
+                <div class="train-primary skeleton-primary"><div class="train-main"><div class="train-headsign"><span class="skel-line mid"></span></div></div><div class="train-stop-ticker skeleton-stops"><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line long"></span></div></div><div class="train-due"></div></div>
+                <div class="platform-secondary"><div class="train-next-row"><div class="dest"><span class="skel-line mid"></span></div><div class="due"></div></div><div class="train-next-row"><div class="dest"><span class="skel-line long"></span></div><div class="due"></div></div></div>
+              </section>
+              <section class="platform-card">
+                <header class="platform-card-head"><div class="platform-number">23</div><div><div class="platform-kind">Airport <span class="line-badge">T8</span></div></div></header>
+                <div class="train-primary skeleton-primary"><div class="train-main"><div class="train-headsign"><span class="skel-line mid"></span></div></div><div class="train-stop-ticker skeleton-stops"><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line"></span></div><div class="train-stop"><span class="skel-line mid"></span></div><div class="train-stop"><span class="skel-line long"></span></div><div class="train-stop"><span class="skel-line"></span></div></div><div class="train-due"></div></div>
+                <div class="platform-secondary"><div class="train-next-row"><div class="dest"><span class="skel-line long"></span></div><div class="due"></div></div><div class="train-next-row"><div class="dest"><span class="skel-line mid"></span></div><div class="due"></div></div></div>
+              </section>
+            </div>
+          </article>
+          <article class="stop directional metro">
+            <div class="stop-head"><div class="stop-name">Metro</div><div class="kind">Central</div></div>
+            <div class="direction-grid">
+              <section class="direction"><div class="direction-body"><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div></div></section>
+              <section class="direction"><div class="direction-body"><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div></div></section>
+            </div>
+          </article>
+          <article class="stop directional light_rail">
+            <div class="stop-head"><div class="stop-name">Light Rail</div><div class="kind">Central Chalmers St</div></div>
+            <div class="direction-grid">
+              <section class="direction"><div class="direction-body"><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div></div></section>
+              <section class="direction"><div class="direction-body"><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div><div class="departure compact is-empty"></div></div></section>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    </div>
+    <script src="/app.js?v=fit-scale-14"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+[Unit]
+Description=Mi Reader commute dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=-/etc/mireader-dashboard.env
+WorkingDirectory=/opt/mireader-dashboard
+ExecStart=/usr/bin/python3 /opt/mireader-dashboard/server.py
+Restart=always
+RestartSec=3
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
